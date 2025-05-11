@@ -8,23 +8,26 @@ const FolderUploadToCSV = () => {
     // console.log(event.target.files);
     const files = event.target.files;
     // console.log(files);
-
+    
 
     let jsonData = {};
-    let arr = []
+    // let arr = []
+    // for(let i = 0; i < files.length; i++) {
+    //     let fileSplit = files[i].webkitRelativePath.split('/');
+    //     if(fileSplit[fileSplit.length-1]== "bioData.json") {
+    //         continue;
+    //     }
+        
+    //     if(!arr.includes(fileSplit[fileSplit.length - 2])) {
+    //         arr.push(fileSplit[fileSplit.length - 2]);
+    //     }
+    // }
+    // console.log(arr);
     for(let i = 0; i < files.length; i++) {
         let fileSplit = files[i].webkitRelativePath.split('/');
-        if(fileSplit[fileSplit.length-1]== "bioData.json") {
+        if(!fileSplit[fileSplit.length - 1].split(".")[1] == "json") {
             continue;
         }
-        
-        if(!arr.includes(fileSplit[fileSplit.length - 2])) {
-            arr.push(fileSplit[fileSplit.length - 2]);
-        }
-    }
-    console.log(arr);
-    for(let i = 0; i < files.length; i++) {
-        let fileSplit = files[i].webkitRelativePath.split('/');
         // console.log(fileSplit);
         if(fileSplit[fileSplit.length - 1] == "bioData.json") {
             const allData = [];
