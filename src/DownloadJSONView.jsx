@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DownloadJSON = ({ data, filename }) => {
+const DownloadJSONView = ({ data, filename }) => {
   const handleDownload = () => {
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -15,8 +15,8 @@ const DownloadJSON = ({ data, filename }) => {
   };
 
   return (
-    <button onClick={handleDownload}>Download JSON for convert csv</button>
+    <button onClick={handleDownload}>Download JSON for view</button>
   );
 };
 
-export default DownloadJSON;
+export default DownloadJSONView;

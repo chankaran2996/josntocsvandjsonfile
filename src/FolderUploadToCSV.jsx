@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import CsvDownload from 'react-json-to-csv';
 import DownloadJSON from './DownloadJSON';
+import DownloadJSONView from './DownloadJSONView';
 
 const FolderUploadToCSV = () => {
     const [data, setData] = useState();
+    const [viewJson,setViewJson] = useState();
   const handleFiles = async (event) => {
     // console.log(event.target.files);
     const files = event.target.files;
@@ -843,6 +845,7 @@ const FolderUploadToCSV = () => {
     // a.click();
     // URL.revokeObjectURL(url);
     console.log(convertjson);
+    setViewJson(jsonData);
     setData(convertjson);
     
   };
@@ -863,6 +866,8 @@ const FolderUploadToCSV = () => {
             </CsvDownload>
 
             <DownloadJSON data={data} filename="user_data" />
+
+            <DownloadJSONView data={viewJson} filename="user_data" />
           </div>
         )
       }
